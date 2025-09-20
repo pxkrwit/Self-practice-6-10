@@ -1,0 +1,4 @@
+function addQuote ได้สร้าง templte ของ object ไว้แล้วพอรับข้อมูลมาก็จะเอาไปแทน key ที่ได้ตั้งไว้ แต่ถ้าไม่ได้ใส่ค่ามาก็จะมี default ของแต่ละ key อยู่ แล้วก็ได้ push เข้าไปใน empty array
+function deleteQuote รับ id เข้ามาแล้วใช้ findIndex เพื่อเอาข้อมูลทั้งหมดที่ตรงกับ id ที่ใส่ แล้วใช้ splice เพื่อลบออก
+function updateQuote รับ 2 parameter id , updatedQuote ใช้ findIndex เพื่อหา id ที่ตรงกัน แล้วได้เอา array หลักมาเปลี่ยนข้อมูลของแต่ qoute ใช้โดย spread เพื่อรับข้อมูลหลายตัว
+function getAllQuotes ใช้ console.log เพื่อแสดงค่าที่อยู่ใน array หลักทั้งหมด
