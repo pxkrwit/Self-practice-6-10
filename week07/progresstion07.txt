@@ -1,0 +1,25 @@
+- นำโจทย์ที่อาจารย์ให้ในห้องเรียนมาทำความเข้าใจมากขึ้น
+
+let el = document.getElementById("demo")
+- ไปเอา id demo มาเพื่อจะทำอะไรสักอย่างกับ element ที่เป็น child ของ demo
+
+let stElement = document.createElement("p")
+- สร้าง element ที่เป็น tag p 
+
+stElement.setAttribute("format","italic")
+- เพิ่ม attribute format = italic
+- ใน html จะเป็นแบบนี้ <p style="font-style: italic;"> Pluem</p>
+
+stElement.innerHTML = '<i>Sample italic Text</i>'
+- เขียนข้อความโดยใช้ tag i
+- ใช้ innerHTML เพื่อตั้งให้เป็นส่วนหนึ่งของ html 
+- result ที่ได้จะเป็ฯตัวอักษรเอียง เพราะถูกมองว่าเป็นโค้ด html
+
+ndElement.innerText = '<i>Sample italic Text</i>'
+thElement.textContent = '<i>Sample italic Text</i>'
+- 2 อันนี้จะได้ result = <i>Sample italic Text</i> เพราะไม่ถูกมองว่าเป็ฯโค้ด html
+- innerText , textContent : จะคืนผลลัพะ์เป็นตัวเดิม
+
+el.appendChild(stElement)
+- เพิ่ม element แต่ละตัวที่สร้างมาให้เป็น child ของ demo
+- ถ้าเพิ่ม web จะ update แต่ถ้าไม่เพิ่มก็จยังไม่ update
