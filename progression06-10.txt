@@ -1,2 +1,3 @@
 week06 - ทำ project ที่อาจารย์ได้ส่งให้ทำ
 wekk07 - ทำความเข้าใจการเข้าถึง element , สร้างและ set element ต่างๆจากโจทย์ที่อาจารย์ให้
+week08 - นำ practice1-2 และ project มาทำ
