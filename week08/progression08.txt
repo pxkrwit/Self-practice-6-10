@@ -1,0 +1,35 @@
+practice1   
+    - เข้าถึง id ของแต่ละ element เพื่อจะทำบางอย่าง
+    - addEventListener( "click" , () => {}) เป็น event เมื่อกดจะทำ function ตามที่ได้ตั้งเอาไว้
+    - classList.add() : เพิ่ม
+    - classList.remove() : ลบ
+    - classList.toggle() : สลับ ( ถ้ามีอยู่ก็จะเปลี่ยนเป็นลบ ถ้าไม่มีก็จะ add เข้าไป )
+
+practice2
+    - ใช้ getElementById("box") เพื่อเข้าถึง id ของ box
+    - ใช้ document.querySelectorAll('button[data-color]') เพื่อเอา tag button ทุกตัวที่มี attribute data-color
+    - ใช้ .forEach() เพื่อ loop event clik
+    - สร้างตัวแปรเพื่อเก็บ dataset.color
+    - box.style.backgroundColor เพื่อเปลี่ยนสี bg ตามที่กด
+
+project 
+    - import fucntion จาก quote มาใช้
+    - ใช้ document.getElementById('quote-list') 
+    - function renderQuotes()
+        - ถ้า quoteList เป็น false ก็หยุดโปรแกรม
+        – สร้างตัวแปร quotes เพื่อไปดึง quote ทุกตัวมา หรือสร้าง array ไว้รอเก็บ
+        - check ว่าใน quoteList มีข้อมูลไหมโดยการใช้ quote.length
+            - ถ้าไม่มีก็ใช้ createElement('p') เพื่อสร้าง tag p 
+            - แล้วใช้ textContent เพื่อแสดงข้อมูลว่าไม่มีข้อมูล
+            - ใช้ quoteList.appendChild(p) เพื่อเพิ่มไปเป็น child ใน quoteList
+        - ใช้ createDocumentFragment() เพื่เก็บข้อมูลแบบระยะสั้น
+        - ใช้ for loop เพื่อสร้าง child ให้ p
+            - createElement('p') เพื่อสร้าง tag p 
+            - ตั้ง class ให้เป็น quote-item
+            - ใช้ textContent เพื่อแสดง author , content
+            - ใช้ fragment.appendChild(p) เพื่อนำ p ทั้งหมดที่สร้างมาไปเป็น child ของ fragment
+        - quoteList.appendChild(fragment) เอาข้อมูลทั้งหมดที่เพิ่มแล้วไปเป็น child ของ quoteList
+        - ใช้ addQuote ที่ import มาเพื่อเพิ่ม quote
+        - ใช้ renderQuotes() เพื่อรันโปรแกรมที่ทำให้ข้อมูลที่เพิ่มเข้ามาไปแสดงในหน้าเว็บ
+
+    
