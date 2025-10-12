@@ -1,0 +1,67 @@
+- import ทุก function จาก qoute.js
+
+- เข้าถึง id แต่ละตัวโดยใช้ getElementById()
+- เข้าถึงทุกๆตัวที่อยู่ใน div id randomQuoteDisplay
+
+function createQuoteElement(quote)
+    - createElement 5 ตัว div, p 2 ตัวเอาไว้เก็บ ( author, content) , button 2 ปุ่ม ( edit , delete)
+    - div   
+        - ตั้ง dataset.id = qoute.id
+    - author , content
+        - เพิ่ม textContent ที่ระบุ author , content
+    - edit-button   
+        - ตั้ง class = 'edit-btn'เพื่อเชื่อมกับ css
+        - เพิ่ม textContent = 'Edit'
+        - ตั้ง dataset.id = quote.id
+        - ตั้ง click event
+            - เอาค่าที่รับมากใหม่ไปแทนในของเดิม
+    - delete-button 
+        - ตั้ง class = 'delete-btn'
+        - textContent = 'Delete'
+        - ตั้ง click event    
+            - เอาไปเข้า function deleteQuote(quote.id) เพื่อลบใน quotes ด้วย id
+            - ลบออกจาก DOM ด้วย function deleteQuoteFromDOM(quote.id)
+    
+    - append content, author, edit, delete ไปไว้ใน div
+    - คืนค่า div
+
+- เพิ่ม event submit ใน form
+    - ใช้ .preventDefault() เพื่อป้องกันการ refresh web
+    - สร้างตัวแปรเพื่อเก็บ input ที่รับจาก form (content, author, id)
+    - นำ id มาเช็คเพื่อดูว่ามี quote อยู่ไหม
+        - ถ้าไม่มี ใช้ function addQuote ใส่ parameter เป็น content, author ที่รับเข้ามาเพื่อเพิ่มเป็น quote ใหม่
+            - แล้วใช้ addQuoteToDOM(newQuote) เพื่อเพิ่มในหน้าเว็บ
+        - ถ้ามีอยู่แล้ว ใช้ function updateQuote(Number(id),newContent,newAuthor) 
+            - แล้วใช้ updateQuoteInDOM(update)
+    - พอทำทุกอย่างเสร็จจะ reset form ทำให้ form ว่าง โดยการใช้ form.reset()
+    - แล้วให้ idInput = ''
+
+- เพิ่ม event click ให้ปุ่ม random โดยให้ไปเรียก function showRandomQoute
+
+function addQuoteToDOM(quote)
+    - จะไปเรียก function createQuoteElement แล้วใส่ parameter ที่รับเข้ามา
+    - จากนั้น append เข้าไปใน qouteList
+
+function updateQuoteInDOM(quote)
+    - const find = document.querySelector เพื่อหา qoute ที่มี data-id ตรงกับ qoute ที่รับเข้ามา
+    - const update =  find.querySelectorAll('p') โดยจะหา tag p ทุกตัวที่ตรงกับ id ที่ตรงกันจากอันบน
+    - update[0].textContent = quote.content เพื่อแทนที่ค่าใหม่
+    - update[1].textContent = quote.author
+
+function deleteQuoteFromDOM(id) 
+    - const find = document.querySelector(`[data-id = "${id}"]`)
+    - ใช้ find.remove เพื่อลบ
+
+function renderQuotes()
+    - ใช้ querySelector('#quote-list')
+    - แล้ว set innerHTML = ''
+    - เรียกใช้ function getAllQuotes()
+    - นำ qoute ที่หาเจอมา loop
+        - เรียกใช้ function createQuoteElement() โดยมี parameter เป็น quote[i] เพื่อ loop ทีละอัน
+        - append แต่ละอันไปใน qouteList
+
+function showRandomQuote()
+    - เรียกใช้ function getAllQuotes()
+    - สร้างตัวแปร random เพื่อเก็บค่าที่ใช้ math.floor สุ่มเลข จากจำนวน qoute ที่มีทั้งหมด
+    - สร้างตัวแปร select เพื่อระบุตำแหน่งของเลขที่สุ่มได้ เพื่อเลือก qoute
+    - เพิ่ม textContent ให้ randomDisplay
