@@ -1,17 +1,37 @@
-- ใช้ event DOMContentLoaded เพื่อรอโหลด input ที่ user กรอกเข้ามา
-    - เข้าถึง id ของทุกตัว
-    - สร้างตัวแปรเพื่อเก็บ input แบบ localStorage ใช้ getItem แล้วตั้งชื่อให้ค่า
-    - ทำการเช็คว่ามี input ไหม
-        - ถ้ามีจะเอาไปเปลี่ยนตามที่ต้องการ
-            - แล้วนำไป replace ค่าของเก่า
-        - ถ้าไม่มีตั้งค่าแบบตายตัวเพื่อเป็น defualt
-    - ใช้ event click กับปุ่ม save
-        - สร้างตัวแปรเพื่อเก็บ value ของแต่ละ input
-        - ใช้ localStorage.setItem() เพื่อเปลี่ยนค่า โดยจะใช้ค่าตามที่เก็บไว้ด้วย getItem
-        - นำค่าที่เปลี่ยนใหม่เสร็จแล้วมา replace 
-    - ใช้ event click กับปุ่ม reset
-        - ใช้ localStorage.clear() เพื่อล้างค่าที่ get มาทั้งหมด
-        - เปลี่ยนทุกค่ากับไปเป็น defualt
-        - แล้ว set value ของแต่ละตัวใหม่ให้กับไปเป็นเหมือนตอนแรก
+Practice
+    - ใช้ event DOMContentLoaded เพื่อรอโหลด input ที่ user กรอกเข้ามา
+        - เข้าถึง id ของทุกตัว
+        - สร้างตัวแปรเพื่อเก็บ input แบบ localStorage ใช้ getItem แล้วตั้งชื่อให้ค่า
+        - ทำการเช็คว่ามี input ไหม
+            - ถ้ามีจะเอาไปเปลี่ยนตามที่ต้องการ
+                - แล้วนำไป replace ค่าของเก่า
+            - ถ้าไม่มีตั้งค่าแบบตายตัวเพื่อเป็น defualt
+        - ใช้ event click กับปุ่ม save
+            - สร้างตัวแปรเพื่อเก็บ value ของแต่ละ input
+            - ใช้ localStorage.setItem() เพื่อเปลี่ยนค่า โดยจะใช้ค่าตามที่เก็บไว้ด้วย getItem
+            - นำค่าที่เปลี่ยนใหม่เสร็จแล้วมา replace 
+        - ใช้ event click กับปุ่ม reset
+            - ใช้ localStorage.clear() เพื่อล้างค่าที่ get มาทั้งหมด
+            - เปลี่ยนทุกค่ากับไปเป็น defualt
+            - แล้ว set value ของแต่ละตัวใหม่ให้กับไปเป็นเหมือนตอนแรก
 
+Project
+    function loadQuotes()
+        - สร้างตัวแปรเก็บค่าที่อ่านใน storage มาแล้ว
+        - นำมาเช็คว่าเจอค่าไหม
+        - ใช้ try ... catch(e) เพื่อกัน  error 
+            - สร้างตัวแปรเพื่อแปลง JSON มาเป็น arry แล้วเก็บค่าจากที่ load มา
+            - ใช้ forEach() เพื่อ loop ว่ามี content, author มาไหม
+                - เรียกใช้ function addQuote()
+            - แทนที่ quotes เก่าด้วยไปเรียกใช้ function getAllQuotes() ที่เก็บค่าหลังใช้ addQuote()
+            - เรียกใช้ function renderQuotes()
+
+    function saveQuotes()
+        - สร้างตัวแปรที่เก็บทุก quote โดยเรียกใช้ getAllQuotes()
+        - นำมาเช็คว่าเจอค่าไหม
+        - นำมาเช็คว่ามี quote ไหมโดยการใช้ .length 
+            - ถ้า === 0 ( ไม่มี quote ) 
+            - ใช้ localStorage.removeItem() เพื่อลบออกจาก storage
+        - สร้างตัวแปรเพื่อแปลง JSON เป็น string
+        - ใช้ localStorage.setItem('load', parsedQuotes) เพื่อ save ข้อมูลลงใน storage
 
