@@ -2,3 +2,4 @@ week06 - ทำ project ที่อาจารย์ได้ส่งให�
 wekk07 - ทำความเข้าใจการเข้าถึง element , สร้างและ set element ต่างๆจากโจทย์ที่อาจารย์ให้
 week08 - นำ practice1-2 และ project มาทำ
 week09 - Projectเกี่ยวกับการใช้ DOM
+week10 - นำ practice ที่ทำเกี่ยวกับการใช้ storage มาทำความเข้าใจมากขึ้น
